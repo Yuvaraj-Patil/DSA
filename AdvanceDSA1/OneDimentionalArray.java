@@ -32,4 +32,22 @@ public class OneDimentionalArray
         for(int i=0;i<A;i++)
             System.out.print(resArray[i]+" ");
     }
+
+    /*Imagine a histogram where the bars' heights are given by the array A. Each bar is of uniform width, 
+    which is 1 unit. When it rains, water will accumulate in the valleys between the bars. Your task is to 
+    calculate the total amount of water that can be trapped in these valleys. 
+    Example:The Array A = [5, 4, 1, 4, 3, 2, 7] is visualized as below. The total amount of rain water trapped 
+    in A is 11.*/
+    private void TrappedWater()
+    {
+        int[] A={5,4,1,4,3,2,7};
+        int n=A.length, result=0;
+        int[] maxLR=new maxLR[n];
+        int[] maxRL=new maxRL[n];
+        int 
+        for(int i=0;i<n;i++)
+        {
+            maxLR            
+        }
+    }
 }
