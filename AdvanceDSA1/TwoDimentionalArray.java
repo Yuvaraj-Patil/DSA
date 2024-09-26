@@ -5,6 +5,15 @@ public class TwoDimentionalArray
     public static void main(String[] args) 
     {
         SearchInMatrix();
+        int[][] result=GenerateSpiralMatrix(9);
+        for(int i=0;i<result.length;i++)
+        {
+            for(int j=0;j<result[0].length;j++)
+            {
+                System.out.print(result[i][j]+" ");
+            }
+            System.out.println();
+        }
     }
     /*
      * Given a matrix of integers A of size N x M and an integer B. In the given matrix every row and 
@@ -41,7 +50,35 @@ public class TwoDimentionalArray
      * [ [1, 2, 3], 
          [8, 9, 4],
          [7, 6, 5] ]
-     */
-    
-
+     */  
+    private static int[][] GenerateSpiralMatrix(int A)
+    {
+        int ele=1;
+        int resArray[][]=new int[A][A];        
+        int i=0,j=0;
+        while(A>0)
+        {
+            if(A==1)
+                resArray[i][j]=ele;            
+            for(int k=1;k<A;k++,j++) 
+            {
+                resArray[i][j]=ele++;
+            }
+            for(int k=1;k<A;k++,i++)
+            {
+                resArray[i][j]=ele++;
+            } 
+            for(int k=1;k<A;k++,j--)
+            {
+                resArray[i][j]=ele++;
+            }
+            for(int k=1;k<A;k++,i--)
+            {
+                resArray[i][j]=ele++;
+            }
+            i++;j++;
+            A-=2;
+        }         
+        return resArray; 
+    }
 }
