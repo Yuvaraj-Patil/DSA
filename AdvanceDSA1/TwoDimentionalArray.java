@@ -6,14 +6,7 @@ public class TwoDimentionalArray
     {
         SearchInMatrix();
         int[][] result=GenerateSpiralMatrix(9);
-        for(int i=0;i<result.length;i++)
-        {
-            for(int j=0;j<result[0].length;j++)
-            {
-                System.out.print(result[i][j]+" ");
-            }
-            System.out.println();
-        }
+        print2DMatrix(result);
     }
     /*
      * Given a matrix of integers A of size N x M and an integer B. In the given matrix every row and 
@@ -80,5 +73,16 @@ public class TwoDimentionalArray
             A-=2;
         }         
         return resArray; 
+    }
+    public static void print2DMatrix(int[][] array)
+    {
+        for(int i=0;i<array.length;i++)
+        {
+            for(int j=0;j<array[0].length;j++)
+            {
+                System.out.print(array[i][j]+" ");
+            }
+            System.out.println();
+        }
     }
 }
