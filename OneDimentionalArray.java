@@ -1,5 +1,3 @@
-package AdvanceDSA1;
-
 public class OneDimentionalArray 
 {
     public static void main(String[] args) 
@@ -20,9 +18,10 @@ public class OneDimentionalArray
         int[] resArray=new int[A];
         for(int i=0;i<A;i++)
             resArray[i]=0;
-        for(int i=0;i<B.length;i++)
-        {
-            int L=B[i][0],R=B[i][1],P=B[i][2];
+        for (int[] B1 : B) {
+            int L = B1[0];
+            int R = B1[1];
+            int P = B1[2];
             resArray[L-1]=resArray[L-1]+P;
             if(R<A)
                 resArray[R]=resArray[R]-P;
@@ -42,12 +41,8 @@ public class OneDimentionalArray
     {
         int[] A={5,4,1,4,3,2,7};
         int n=A.length, result=0;
-        int[] maxLR=new maxLR[n];
-        int[] maxRL=new maxRL[n];
-        int 
         for(int i=0;i<n;i++)
         {
-            maxLR            
         }
     }
 }

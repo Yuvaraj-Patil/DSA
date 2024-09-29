@@ -1,5 +1,4 @@
-package AdvanceDSA1;
-
+package DSA;
 public class TwoDimentionalArray
 {
     public static void main(String[] args) 
@@ -19,7 +18,7 @@ public class TwoDimentionalArray
      * Note 3: Expected time complexity is linear
      * Note 4: Use 1-based indexing
      */
-    private static void SearchInMatrix()
+    public static void SearchInMatrix()
     {
         int A[][]={{1,2,3},{4,5,6},{7,8,9}},B=2;
         int n=A.length,m=A[0].length;
@@ -44,7 +43,7 @@ public class TwoDimentionalArray
          [8, 9, 4],
          [7, 6, 5] ]
      */  
-    private static int[][] GenerateSpiralMatrix(int A)
+    public static int[][] GenerateSpiralMatrix(int A)
     {
         int ele=1;
         int resArray[][]=new int[A][A];        
@@ -76,11 +75,11 @@ public class TwoDimentionalArray
     }
     public static void print2DMatrix(int[][] array)
     {
-        for(int i=0;i<array.length;i++)
+        for (int[] array1 : array) 
         {
-            for(int j=0;j<array[0].length;j++)
+            for (int array2: array1) 
             {
-                System.out.print(array[i][j]+" ");
+                System.out.print(array2 + " ");
             }
             System.out.println();
         }
