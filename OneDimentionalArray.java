@@ -3,6 +3,8 @@ public class OneDimentionalArray
     public static void main(String[] args) 
     {
         BeggersProblem();
+        System.out.println(maxSubArray(new int[]{-2, 1, -3, 4, -1, 2, 1, -5, 4}));
+        System.out.println(waterTrapped(new int[]{5, 4, 1, 4, 3, 2, 7}));
     }
     /*There are A beggars sitting in a row outside a temple. Each beggar initially has an empty pot. 
     When the devotees come to the temple, they donate some amount of coins to these beggars. Each 
@@ -31,18 +33,47 @@ public class OneDimentionalArray
         for(int i=0;i<A;i++)
             System.out.print(resArray[i]+" ");
     }
-
-    /*Imagine a histogram where the bars' heights are given by the array A. Each bar is of uniform width, 
-    which is 1 unit. When it rains, water will accumulate in the valleys between the bars. Your task is to 
-    calculate the total amount of water that can be trapped in these valleys. 
-    Example:The Array A = [5, 4, 1, 4, 3, 2, 7] is visualized as below. The total amount of rain water trapped 
-    in A is 11.*/
-    private void TrappedWater()
+    
+    /*
+     * Find the maximum sum of contiguous non-empty subarray within an array A of length N.
+     */
+    public static int maxSubArray(final int[] A) 
     {
-        int[] A={5,4,1,4,3,2,7};
-        int n=A.length, result=0;
-        for(int i=0;i<n;i++)
+        int maxSubArraySum=Integer.MIN_VALUE,curr_sum=0;
+        for(int a:A)
         {
+            curr_sum+=a;            
+            maxSubArraySum=Math.max(maxSubArraySum,curr_sum);
+            if(curr_sum<0)
+            {
+                curr_sum=0;
+            }
         }
+        return maxSubArraySum;
+    }
+
+    /*
+     * Imagine a histogram where the bars' heights are given by the array A. Each bar is of uniform width, 
+     * which is 1 unit. When it rains, water will accumulate in the valleys between the bars.
+     * Your task is to calculate the total amount of water that can be trapped in these valleys.
+     */
+    public static int waterTrapped(final int[] A) {
+        int n=A.length, result=0;
+        int[] maxL=new int[n];
+        int[] maxR=new int[n];
+        maxL[0]=A[0];
+        maxR[n-1]=A[n-1];
+        for(int i=1;i<n;i++)
+        {
+            maxL[i]=Math.max(maxL[i-1],A[i]);
+            maxR[n-i-1]=Math.max(maxR[n-i],A[n-i-1]);   
+        }
+        for(int i=1;i<n-1;i++)
+        {
+            int x=Math.min(maxL[i-1],maxR[i+1])-A[i];
+            if(x>0)
+                result+=x;            
+        }
+        return result;
     }
 }

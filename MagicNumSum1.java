@@ -1,5 +1,3 @@
-package IntermediateDSA2;
-
 public class MagicNumSum1 {
     public static void main(String[] args) {
         System.out.println(MagicNum(83557));

@@ -8,6 +8,7 @@ public class BitManipulation {
         System.out.println(toggleBthBit(10, 3));
         System.out.println(checkBit(20, 4));
         System.out.println(SetAB_Bits(6, 4));
+        System.out.println(magicNumber(12));
     }
     /*
      * Write a function that takes an integer and returns the number of 1 bits present in its binary representation.
@@ -79,5 +80,22 @@ public class BitManipulation {
      */
     public static int SetAB_Bits(int A, int B) {
         return (1<<A|1<<B);
+    }
+    
+    /*
+     * Given an integer A, find and return the Ath magic number.
+     * A magic number is defined as a number that can be expressed as a power of 5 or a sum of unique powers of 5.
+     * First few magic numbers are 5, 25, 30(5 + 25), 125, 130(125 + 5), ….
+     */
+    public static int magicNumber(int A) {
+        int ans=0,i=0;
+        while(A>0)
+        {
+            i++;           
+            if((A&1)==1)
+                ans+=Math.pow(5,i);
+            A=A>>1; 
+        }
+        return ans;
     }
 }
