@@ -1,5 +1,3 @@
-package IntermediateDSA2;
-
 public class kthElemnt {
     public static void main(String[] args) {
         System.out.println(solve(2,1));

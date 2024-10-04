@@ -1,11 +1,11 @@
-package DSA;
 public class TwoDimentionalArray
 {
     public static void main(String[] args) 
     {
         SearchInMatrix();
-        int[][] result=GenerateSpiralMatrix(9);
+        int[][] result=GenerateSpiralMatrix(3);
         print2DMatrix(result);
+        System.out.println(sumOfAllSubMatrices(result));
     }
     /*
      * Given a matrix of integers A of size N x M and an integer B. In the given matrix every row and 
@@ -73,6 +73,23 @@ public class TwoDimentionalArray
         }         
         return resArray; 
     }
+
+    /*
+     * Given a 2D Matrix A of dimensions N*N, we need to return the sum of all possible submatrices.
+     */
+    public static int sumOfAllSubMatrices(int[][] A) {
+        int result=0;
+        int n=A.length;
+        for(int i=0;i<n;i++)
+        {
+            for(int j=0;j<n;j++)
+            {
+                result+=(i+1)*(j+1)*(n-i)*(n-j)*A[i][j];
+            }
+        }
+        return result;
+    }
+
     public static void print2DMatrix(int[][] array)
     {
         for (int[] array1 : array) 

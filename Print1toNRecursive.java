@@ -1,5 +1,3 @@
-package IntermediateDSA2;
-
 public class Print1toNRecursive {
     public static void main(String[] args) {
         solve(9);

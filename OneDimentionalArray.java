@@ -2,7 +2,7 @@ public class OneDimentionalArray
 {
     public static void main(String[] args) 
     {
-        BeggersProblem();
+        beggersProblem();
         System.out.println(maxSubArray(new int[]{-2, 1, -3, 4, -1, 2, 1, -5, 4}));
         System.out.println(waterTrapped(new int[]{5, 4, 1, 4, 3, 2, 7}));
     }
@@ -13,7 +13,7 @@ public class OneDimentionalArray
     where 1 <= L <= R <= A, find out the final amount of money in each beggar's pot at the end of the day, 
     provided they don't fill their pots by any other means. For ith devotee B[i][0] = L, B[i][1] = R, B[i][2] = P, 
     given by the 2D array B*/
-    private static void BeggersProblem()
+    private static void beggersProblem()
     {
         int A = 5;
         int[][] B = {{1, 2, 10}, {2, 3, 20}, {2, 5, 25}};

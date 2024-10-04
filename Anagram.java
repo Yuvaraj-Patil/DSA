@@ -1,5 +1,3 @@
-package IntermediateDSA2;
-
 public class Anagram {
     public static void main(String[] args) {
         String A="cat",B="bat";

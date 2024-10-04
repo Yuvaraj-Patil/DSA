@@ -7,20 +7,21 @@ public class Recursion{
         System.out.println(power(2,10));
         int[] arr={10,20,30,40,50};
         printArray(arr,0);
+        fibonaccii(12);
     }
-    private static int Sum(int n)
+    public static int Sum(int n)
     {
         if(n==0)
             return 0;
         return Sum(n-1)+n;
     }
-    private static int Fact(int n)
+    public static int Fact(int n)
     {
         if(n==0)
             return 1;
         return Fact(n-1)*n;
     }
-    private static void Increasing(int A)
+    public static void Increasing(int A)
     {
         if(A==0)
             return;
@@ -28,7 +29,7 @@ public class Recursion{
         System.out.print(A+" ");
     }
 
-    private static int power(int a,int n)
+    public static int power(int a,int n)
     {
         if(n==0)
             return 1;
@@ -41,14 +42,21 @@ public class Recursion{
                 return val*val*a;
         }
     }
-    private static void printArray(int[] a,int index)
+    public static void printArray(int[] a,int index)
     {
         if(index==a.length)
             return;
         System.out.println(a[index]);
         printArray(a,index+1);
     }
-    // private static int[] findAll(int[] A,int B,int index, int count)
+
+    public static int fibonaccii(int n)
+    {
+        if(n<2)
+            return n;
+        return fibonaccii(n-1)+fibonaccii(n-1);
+    }
+    // public static int[] findAll(int[] A,int B,int index, int count)
     // {
     //     if(index==A.length)
     //         return new int[count];
