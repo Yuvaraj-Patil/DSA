@@ -23,7 +23,7 @@ public class Recursion
     }
 
     /*
-     * 
+     * Sum of Numbers from 1 to n
      */
     public static int Sum(int n)
     {
@@ -70,6 +70,9 @@ public class Recursion
         decreasing(A-1);         
     }
 
+    /*
+     * Given two positive integers A and B. Implement Fast Power function to compute A^B
+     */
     public static int power(int a,int n)
     {
         if(n==0)
@@ -83,6 +86,10 @@ public class Recursion
                 return val*val*a;
         }
     }
+
+    /*
+     * You are given an array A. Print the elements of the array using recursion.
+     */
     public static void printArray(int[] a,int index)
     {
         if(index==a.length)
@@ -130,7 +137,10 @@ public class Recursion
         System.out.print(A+" ");
     }
 
-
+    /*
+     * Given an array of integers A with N elements and a target integer B, 
+     * the task is to find all the indices at which B occurs in the array.
+     */
     public static int[] findAll(int[] A,int B,int index, int count)
     {
         if(index==A.length)
@@ -148,12 +158,16 @@ public class Recursion
         }     
     }
 
-    public static boolean checkPalindrome(String str,int s,int e)
+    /*
+     * Write a recursive function that checks whether string A is a palindrome or Not.
+     * Return 1 if the string A is a palindrome, else return 0.
+     */
+    public static int checkPalindrome(String str,int s,int e)
     {
         if(s>e)
-            return true;
+            return 1;
         if(Character.compare(str.charAt(s),str.charAt(e))!=0)
-            return false;
+            return 0;
         return checkPalindrome(str, s+1, e-1);
     }
 }
