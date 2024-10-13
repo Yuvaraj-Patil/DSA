@@ -1,12 +1,10 @@
-package IntermediateDSA2;
-
 import java.util.HashSet;
 
 public class ColorfullNum {
     public static void main(String[] args) {
         int A=23;
         HashSet<Integer> hs=new HashSet();
-        int currNum=0,p;
+        int currNum=0,p=1;
         while(A!=0)
         {
             int d=A%10;
@@ -15,10 +13,10 @@ public class ColorfullNum {
                 p=currNum;
             else
                 p*=currNum;
-            if(hs.hasValue(p))
+            if(hs.contains(p))
                 System.out.println(0);
             else 
-                hs.set(currNum)=p;              
+                hs.add(currNum);              
             A=A/10;
         }
     }
