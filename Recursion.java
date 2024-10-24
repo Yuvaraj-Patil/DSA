@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 public class Recursion
 {
     public static void main(String[] args)
@@ -19,6 +21,20 @@ public class Recursion
         for (int i : ans) 
         {
             System.out.print(i+" ");
+        }
+
+        ArrayList<ArrayList<Integer>> res=new ArrayList<>();
+        TowerOfHonai(2,1,3,2,res);
+        
+        System.out.println();
+        for(ArrayList<Integer> r:res)
+        {
+            System.out.print("[");
+            for(Integer c:r)
+            {
+                System.out.print(c +" ");
+            }
+            System.out.print("]");
         }
     }
 
@@ -169,5 +185,25 @@ public class Recursion
         if(Character.compare(str.charAt(s),str.charAt(e))!=0)
             return 0;
         return checkPalindrome(str, s+1, e-1);
+    }
+
+    public static ArrayList<ArrayList<Integer>> TowerOfHonai(int n, int origin, int destination, int buffer,ArrayList<ArrayList<Integer>> res) 
+    {
+        // Base case
+        if (n <= 0) 
+            return res;
+
+        // move top n - 1 disks from origin to buffer, using destination as a buffer.
+        TowerOfHonai(n - 1, origin, buffer, destination,res);
+
+        // move top from origin to destination
+        ArrayList<Integer> moveTop= new ArrayList<>();
+        moveTop.add(n);
+        moveTop.add(origin);
+        moveTop.add(destination);
+        res.add(moveTop);
+
+        // move top n - 1 disks from buffer to destination, using origin as a buffer.
+        return TowerOfHonai(n - 1, buffer, destination, origin,res);
     }
 }

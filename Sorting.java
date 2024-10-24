@@ -7,6 +7,8 @@ public class Sorting {
         sort(arr, 0, arr.length - 1); 
         System.out.println("\nSorted array is"); 
         printArray(arr); 
+        System.out.println("\nSorted Colors are"); 
+        printArray(sortColors(new int[]{0, 1, 2, 0, 1, 2, 0}));
     }
     // Merges two subarrays of arr[]. 
     // First subarray is arr[l..m] 
@@ -78,4 +80,42 @@ public class Sorting {
             System.out.print(arr[i] + " "); 
         System.out.println(); 
     }      
+
+    /*
+     * Given an array with N objects colored red, white, or blue, sort them so that objects 
+     * of the same color are adjacent, with the colors in the order red, white, and blue.
+     * We will represent the colors as, red -> 0 , white -> 1 and blue -> 2
+     */
+    public static int[] sortColors(int[] A) 
+    {
+        int n = A.length;
+        int lo = 0,mid=0,hi = n - 1;
+
+        // Iterate till all the elements are sorted
+        while (mid <= hi) 
+        {
+            if (A[mid] == 0) 
+            {
+                swap(A, mid, lo);
+                lo++;
+                mid++;
+            }
+            else if (A[mid] == 1) 
+            {
+                mid++;
+            }
+            else 
+            {
+                swap(A, mid, hi);
+                hi--;
+            }
+        }
+        return A;
+    }
+    public static void swap(int[] arr,int i,int j)
+    {
+        int temp=arr[i];
+        arr[i]=arr[j];
+        arr[j]=temp;
+    }
 }
