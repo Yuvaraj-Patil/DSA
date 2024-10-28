@@ -10,7 +10,7 @@ public class FactorOfNumber {
         System.out.println("Number is Prime: "+checkPrimeNum(n));
         sc.close();
     }
-    private static int numberOfFactors(int n)
+    public static int numberOfFactors(int n)
     {
         int count=0;
         for(int i=1;i<=Math.sqrt(n);i++)
@@ -22,7 +22,7 @@ public class FactorOfNumber {
         }
         return count;
     }
-    private static boolean checkPrimeNum(int n)
+    public static boolean checkPrimeNum(int n)
     {
         if(numberOfFactors(n)==2)
             return true;

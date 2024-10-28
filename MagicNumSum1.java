@@ -1,6 +1,6 @@
 public class MagicNumSum1 {
     public static void main(String[] args) {
-        System.out.println(MagicNum(83557));
+        System.out.println(MagicNum(83557999));
     }
     public static int MagicNum(int A) {
         int sum=sumOfDigits(A);
