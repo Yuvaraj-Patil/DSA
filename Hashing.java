@@ -6,7 +6,7 @@ public class Hashing
     {
         System.out.println(lengthOfLongestSubstring("bbbbbbb"));
         System.out.println(subArraySumZero(new ArrayList<>(Arrays.asList(new Integer[]{-15,-12,-13,5,-20,1,2,3,4,5,6,7,8,9,10,-25,-55}))));
-        System.out.println(countOfSubArraySumEqlToB(new ArrayList<>(Arrays.asList(new Integer[]{-20,-13,4,2,18,-17,17})), 11));
+        System.out.println(countOfSubArraySumEqlToB(new ArrayList<>(Arrays.asList(new Integer[]{-14,-9,12,7,-12,-4,7,25,-5,48,33,-49,36,-31,-48,36,36,17,13,-47,-39,37,-20,35,38,26,-40,-43,36,-48,-33,-30,6,-28,11,27,22,18,-21,-11,-50,34,-21,44,-25,17,34,-12,14,26,30})), 16));
     }    
 
     /*
@@ -17,7 +17,7 @@ public class Hashing
      */
     public static int lengthOfLongestSubstring(String A) 
     {
-        HashSet<Character> ch=new HashSet();
+        HashSet<Character> ch=new HashSet<>();
         int len=0,currLen=0;
         for(Character c: A.toCharArray())
         {
@@ -42,25 +42,28 @@ public class Hashing
      * Since the answer can be very large, return the remainder after dividing the count with 109+7.
      */
     public static int solve(ArrayList<Integer> A, int B) {
-        HashMap<Integer,Integer> hm=new HashMap();
+        HashMap<Integer,Integer> hm=new HashMap<>();
         int count=0;
         for(Integer a:A)
         {
-            int b=B+a;
-            if(hm.containsKey(b))
+            if(hm.containsKey(a-B))
             {
-                count=count+hm.get(b);
+                count+=(hm.get(a-B)%1000000007);
+            }
+            if(hm.containsKey(a+B))
+            {
+                count+=(hm.get(a+B)%1000000007);
             }
             if(hm.containsKey(a))
             {
-                hm.put(a,hm.get(a)+1);
+                hm.put(a,hm.get(a)+1);                
             }
             else
             {
                 hm.put(a,1);
             }
         }
-        return count;
+        return count%1000000007;
     }
 
     /*
@@ -70,9 +73,9 @@ public class Hashing
      */
     public static int subArraySumZero(ArrayList<Integer> A) 
     {
-        HashSet<Integer> hs=new HashSet();
-        int sum=0;
-        hs.add(0);
+        HashSet<Long> hs=new HashSet<>();
+        long sum=0;
+        hs.add(0l);
         for(Integer a:A)
         {
             sum+=a;
@@ -94,18 +97,20 @@ public class Hashing
      */
     public static int countOfSubArraySumEqlToB(ArrayList<Integer> A,int B)
     {
-        HashMap<Integer,Integer> hm=new HashMap();
-        int count=0;
+        HashMap<Integer,Integer> hm=new HashMap<>();
         int sum=0;
-        hm.put(0,1);
+        int count=0;
+        hm.put(B,1);
         for(Integer a:A)
         {
             sum+=a;
             if(hm.containsKey(sum-B))
             {
-                Integer i=hm.get(sum-B);
-                count+=i;
-                hm.put(sum-B,i+1);
+                count+=hm.get(sum-B); 
+            }
+            else if(hm.containsKey(sum))
+            {
+                hm.put(sum,hm.get(sum)+1);
             }
             else
             {
