@@ -5,7 +5,7 @@ public class OneDimentionalArray
     {
         beggersProblem();
         System.out.println();
-        System.out.println(maxSubArray(new int[]{-2, 1, -3, 4, -1, 2, 1, -5, 4}));
+        System.out.println(maxSubArraySum(new int[]{-2, 1, -3, 4, -1, 2, 1, -5, 4}));
         System.out.println(waterTrapped(new int[]{5, 4, 1, 4, 3, 2, 7}));
     }
     /*There are A beggars sitting in a row outside a temple. Each beggar initially has an empty pot. 
@@ -39,7 +39,7 @@ public class OneDimentionalArray
     /*
      * Find the maximum sum of contiguous non-empty subarray within an array A of length N.
      */
-    public static int maxSubArray(final int[] A) 
+    public static int maxSubArraySum(final int[] A) 
     {
         int maxSubArraySum=Integer.MIN_VALUE,curr_sum=0;
         for(int a:A)
