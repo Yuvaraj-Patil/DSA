@@ -1,6 +1,13 @@
+import java.util.Arrays;
+
 public class BinarySearchOnArray
 {
     public static void main(String[] args) {
+        int[] arr=new int[1000000000];
+        Arrays.fill(arr, 0);
+        for (int i : arr) {
+        System.out.println(i);
+        }
         System.out.println(solve(new int[]{1,1,7}));
         System.out.println(searchInsert(new int[]{1, 3, 5, 6},5));
         OneDimentionalArray.printArray(searchRange(new int[]{1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 8, 8, 8, 8, 8, 8, 8, 8, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10},10));
@@ -127,5 +134,52 @@ public class BinarySearchOnArray
         
         // At the end of the loop, left == right and pointing to the peak element
         return A[left];
+    }
+
+
+    public static int rotatedSearch(int[] array,int k)
+    {
+        int n=array.length;
+        int r=0,l=n-1,m;
+        while(r<=l)
+        {
+            m=l+(r-l)/2;
+            if(array[m]==k)
+                return m;
+            if(array[l]<array[m])
+            {
+                if(k>=array[l] && k<=array[m])
+                    r=m-1;
+                else
+                    l=m+1;
+            }
+            else
+            {
+                if(k>=array[m] && k<=array[r])
+                    l=m+1;
+                else
+                    r=m-1;
+            }
+        }
+        return -1;
+    }
+
+    public static int sqrtFloor(int n)
+    {
+        int l=1,r=n,ans=0,m;
+        while(l<=r)
+        {
+            m=l+(r-l)/2;
+            if(m*m<=n)
+            {
+                ans=m;
+                l=m+1;
+            }
+            else
+            {
+                r=m-1;
+            }
+        }
+        return ans;
     }
 }
