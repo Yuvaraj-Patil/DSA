@@ -96,7 +96,7 @@ public class TwoDimentionalArray
         {
             for (int array2: array1) 
             {
-                System.out.print(array2 + " ");
+                System.out.print(array2 + "\t");
             }
             System.out.println();
         }
