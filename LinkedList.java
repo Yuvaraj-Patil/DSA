@@ -1,6 +1,11 @@
 class Node{
-    int value;
-    Node next=new Node();
+    public int value;
+    public Node next;
+    Node(int val)
+    {
+        value=val;
+        next=null;
+    }
 }
 
 public class LinkedList {
@@ -11,7 +16,7 @@ public class LinkedList {
     public static boolean searchValue(Node head, int K)
     {
         Node temp=head;
-        while(temp!=null)
+        while(temp.next!=null)
         {
             if(temp.value==K)
                 return true;
